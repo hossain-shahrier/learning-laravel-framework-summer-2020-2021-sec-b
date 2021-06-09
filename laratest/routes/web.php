@@ -16,9 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/register', function () {
-    return view('register');
-});
+
+Route::get('/login', 'LoginController@index');
+
+Route::post('/login', 'LoginController@verify');
+
+Route::get('/home', 'HomeController@index');
+Route::get('/logout', 'LogoutController@index');
+Route::get('/users/list', 'UserController@index');
+Route::get('/users/edit/{id}', 'UserController@editUser');
+Route::get('/users/create', 'UserController@createUserIndex');
+Route::post('/users/create', 'UserController@createUser');
