@@ -18,12 +18,22 @@ Route::get('/', function () {
 });
 
 Route::get('/login', 'LoginController@index');
-
 Route::post('/login', 'LoginController@verify');
 
-Route::get('/home', 'HomeController@index');
-Route::get('/logout', 'LogoutController@index');
-Route::get('/users/list', 'UserController@index');
-Route::get('/users/edit/{id}', 'UserController@editUser');
-Route::get('/users/create', 'UserController@createUserIndex');
-Route::post('/users/create', 'UserController@createUser');
+Route::middleware(['middleware' => ['session']], function () {
+    Route::get('/home', 'HomeController@index');
+    Route::get('/logout', 'LogoutController@index');
+    Route::get('/users/list', 'UserController@index');
+    // Details User Route
+    Route::get('/user/details/{id}', 'UserController@details');
+    Route::middleware(['middleware' => ['type']], function () {
+    });
+    // Edit User Route
+    Route::get('/user/edit/{id}', 'UserController@edit');
+    Route::post('user/edit/{id}', 'UserController@update');
+    // Delete User Route
+    Route::get('/user/delete/{id}', 'UserController@delete');
+    // Create User Route
+    Route::get('/user/create', 'UserController@create');
+    Route::post('/user/create', 'UserController@insert');
+});

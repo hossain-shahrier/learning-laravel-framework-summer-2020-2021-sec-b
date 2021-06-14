@@ -11,7 +11,7 @@
 <body>
     <center>
         <h3>User List</h3>
-        <a href="/users/create">Create User</a>
+
         <table border="1">
             <tr>
                 <td>ID</td>
@@ -19,15 +19,15 @@
                 <td>Email</td>
                 <td>Action</td>
             </tr>
-            @foreach($userslist as $user)
+            @foreach($userlist as $user)
             <tr>
                 <td>{{$user[0]}}</td>
                 <td>{{$user[1]}}</td>
                 <td>{{$user[2]}}</td>
                 <td>
-                    <a href="/users/details/{{$user[0]}}"> Details </a> |
-                    <a href="/users/edit/{{$user[0]}}"> Edit </a> |
-                    <a href="/users/delete/{{$user[0]}}"> Delete </a> |
+                    <a href="/user/details/{{$user[0]}}"> Details </a> |
+                    <a href="/user/edit/{{$user[0]}}"> Edit </a> |
+                    <a href="/user/delete/{{$user[0]}}"> Delete </a> |
                 </td>
             </tr>
             @endforeach

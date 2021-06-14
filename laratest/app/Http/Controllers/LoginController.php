@@ -17,9 +17,10 @@ class LoginController extends Controller
 
 
         if ($request->uname == $request->password) {
-            return redirect('/home');
+            $request->session()->put('uname', $request->uname);
         } else {
-            echo "Didn't match";
+            $request->session()->flash('msg', 'invaild username or password');
+            return redirect('/login');
         }
     }
 }

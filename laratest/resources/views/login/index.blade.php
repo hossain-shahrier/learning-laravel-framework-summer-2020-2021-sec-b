@@ -8,6 +8,7 @@
 <body>
     <form method="post">
         <table>
+            {{csrf_field()}}
             <tr>
                 <td>Name</td>
                 <td><input type="text" name="uname"></td>

@@ -10,7 +10,7 @@
 
 <body>
     <h1>Welcome, {{$name}}, your Id is {{$id}}</h1>
-    <a href=""> Create New </a> |
+    <a href="/users/create">Create User</a> |
     <a href="/users/list"> User List </a> |
     <a href="/logout"> Logout </a>
 </body>
